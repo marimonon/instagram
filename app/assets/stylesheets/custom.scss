@@ -6,6 +6,7 @@ body {
   background-color: #fafafa;
   font-size: 14px;
   color: #262626;
+  list-style: none;
 }
 
 /* form */
@@ -30,4 +31,17 @@ input[type="submit"] {
   background-image:image-url("image_phone.png");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.m-topppage-tag{
+ display: flex;
+ justify-content: center;
+ li{
+   display: block;
+   margin: 3px;
+ }
+}
+
+.m-toppage-right{
+  max-width: 600px;
 }
