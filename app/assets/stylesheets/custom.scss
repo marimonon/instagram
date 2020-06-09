@@ -1,2 +1,16 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+body {
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #262626;
+}
+  
+}
+// toppage
+.bg-image-phone{
+  background-image:url("<%= asset_path('image_phone.png') %>");
+  background-size:cover;
+}
