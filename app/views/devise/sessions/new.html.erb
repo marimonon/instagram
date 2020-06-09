@@ -9,7 +9,7 @@
         <div class="m-toppage-right center-block">
           <div>
             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <%= image_tag "instagram_title.png", :width => '150' %>
+            <%= image_tag "instagram_title.png", :width => '150' %><br>
             <div class="field text-left form-group">
               <%= f.email_field :email, autofocus: true, placeholder:"メールアドレス", class: "form-control", autocomplete: "off" %>
             </div>
@@ -59,3 +59,4 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/footer' %>

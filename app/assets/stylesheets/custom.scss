@@ -9,6 +9,23 @@ body {
   list-style: none;
 }
 
+.m-footer{
+  display:flex;
+  justify-content:space-between;
+  nav{
+    width: 1500px;
+  }
+  ul{
+    display: flex;
+    justify-content:space-berween;
+    li{
+      display:block;
+      text-align:center;
+      list-style: none;
+    }
+  }
+}
+
 /* form */
 input[type="submit"] {
   @extend .btn;
