@@ -8,6 +8,16 @@ body {
   color: #262626;
 }
 
+/* form */
+input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+  width: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
 // toppage
 .m-container{
   margin: 100px;
