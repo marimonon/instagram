@@ -7,10 +7,17 @@ body {
   font-size: 14px;
   color: #262626;
 }
-  
-}
+
 // toppage
-.bg-image-phone{
-  background-image:url("<%= asset_path('image_phone.png') %>");
-  background-size:cover;
+.m-container{
+  margin: 100px;
+}
+
+.m-bg-image-phone{
+  height: 500px;
+  padding-top: 78px;
+  padding-left: 80px;
+  background-image:image-url("image_phone.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
