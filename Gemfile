@@ -2,7 +2,8 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',      '6.0.3'
-gem 'bootstrap-sass', '3.4.1'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth'

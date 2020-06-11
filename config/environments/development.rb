@@ -36,9 +36,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   
-  # mail send(test)
-  # config.action_mailer.default_url_options = { protocol: 'https', host: 'https://e34c6b879cae4ca683e72772b76dc1e4.vfs.cloud9.us-east-2.amazonaws.com/' }
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -65,4 +62,7 @@ Rails.application.configure do
   
   # Cloud9 への接続を許可する
   config.hosts.clear
+  
+  # mailer setting
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'https://e34c6b879cae4ca683e72772b76dc1e4.vfs.cloud9.us-east-2.amazonaws.com/' }
 end
