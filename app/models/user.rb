@@ -20,6 +20,7 @@ class User < ApplicationRecord
       )
     end
 
-    user
+  validates :name,  presence: true, length: { maximum: 50 },
+                    uniqueness: true
   end
 end
