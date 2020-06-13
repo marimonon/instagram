@@ -6,9 +6,10 @@
     <div class="col-md-8">
       <div class="row">
         <h1><%= @user.name %></h1>
+        <% if @user == current_user %>
         <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn m-edit-profile-btn" %>
         <button type="button" class="m-setting" data-toggle="modal" data-target="#exampleModal"></button>
-
+        <% end %>
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -33,6 +34,23 @@
           </p>
         </div>
       <% end %>
+    </div>
+    <div class="d-flex">
+      <div><%= image_tag "facebook_icon.png" %>
+      <h3>facebookの友達を検索</h3>
+      <p>フォローする人は自分で選択できます。また、アカウントをリンクしても、あなたの許可なくFacebookに投稿されることはありません。</p>
+      <%= link_to "facebookアカウントにリンク", "#", class: "btn btn-primary" %>
+      </div>
+      <div><%= image_tag "tel_icon.png" %>
+      <h3>電話番号を追加</h3>
+      <p>電話番号を追加すると、パスワードのリセットや友達の検索などに使用することができます。</p>
+      <%= link_to "電話番号を追加", "#", class: "btn btn-primary" %>
+      </div>
+      <div><%= image_tag "camera_icon.png" %>
+      <h3>プロフィール写真を追加</h3>
+      <p>友達に簡単に見つけてもらえるよう、プロフィール写真を追加してください。</p>
+      <%= link_to "プロフィール写真を追加", "#", class: "btn btn-primary" %>
+      </div>
     </div>
   </div>
 </div>
