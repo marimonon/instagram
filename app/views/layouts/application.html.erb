@@ -3,10 +3,12 @@
   <head>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all',
                                'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application',
                                'data-turbolinks-track': 'reload' %>
+
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
       </script>
@@ -15,7 +17,7 @@
 
   <body class="center-block">
     <div class="container">
-      <%= render 'partial/navbar' if current_user %>
+    <%= render 'devise/shared/header' if current_user %>
       <% if flash[:notice] %>
         <div class="alert alert-info">
           <%= flash[:notice] %>
@@ -26,7 +28,9 @@
           <%= flash[:alert] %>
         </div>
       <% end %>      
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
