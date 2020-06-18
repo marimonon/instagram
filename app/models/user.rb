@@ -33,4 +33,8 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+  
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy  
+  has_many :fab, dependent: :destroy
 end

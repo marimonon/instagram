@@ -42,3 +42,4 @@ yarn-debug.log*
 
 # facebook path secret
 /.env
+public/uploads/

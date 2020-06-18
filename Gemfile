@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'carrierwave'
 gem 'dotenv-rails'
 gem 'puma',       '4.3.4'
 gem 'sass-rails', '5.1.0'
@@ -15,6 +16,9 @@ gem 'webpacker',  '4.0.7'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap',   '1.4.5', require: false
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem "mini_magick"
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
