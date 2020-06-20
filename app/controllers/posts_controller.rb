@@ -1,11 +1,14 @@
 class PostsController < ApplicationController
+  authenticate_user!
+  
   def new
     @post = Post.new
     @post.photos.build
   end
   
   def create
-    @post = Post.new(post_params)
+binding.pry
+    @post = current_user.posts.build(post_params)
     if @post.photos.present?
       @post.save
       redirect_to root_path
@@ -18,6 +21,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-    params.require(:post).permit(:contain, photos_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:post).permit(:contain, photos_attributes: [:image])
     end
 end

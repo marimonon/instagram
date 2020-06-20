@@ -1,7 +1,8 @@
 <%= form_with model: @post do |f| %>
-  <%= f.fields_for :photos do |f| %>
-  <%= f.file_field :image %>
+  <%= f.label :contain, "名前" %>
+  <%= f.text_field :contain %>
+  <%= f.fields_for :photos do |i| %>
+  <%= i.file_field :image %>
 <% end %>
   <%= f.submit "投稿", class: "btn btn-primary" %>
 <% end %>
-

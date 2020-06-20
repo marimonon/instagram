@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  belongs_to :user
-  default_scope -> { order(created_at: :desc) }
+  belongs_to :user, optional: true
+  # default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :contain, presence: true
   has_many :photos, dependent: :destroy
