@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get '/users/:id', to: 'users#show', as: 'user'
   
-  get '/posts/new', to: 'posts#new'
-  post '/posts', to: 'posts#create'
-  post '/posts/:post_id/photos', to: 'photos#create', as: 'post_photos'
+  # get '/posts/new', to: 'posts#new'
+  # post '/posts', to: 'posts#create'
+  # post '/posts/index', to: 'posts#index'
+
+  resources :posts, only: %i(new create index) 
 end

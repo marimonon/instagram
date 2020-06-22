@@ -42,4 +42,6 @@ yarn-debug.log*
 
 # facebook path secret
 /.env
+
+# Ignore uploaded image
 public/uploads/

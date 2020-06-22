@@ -1,15 +1,14 @@
 class PostsController < ApplicationController
-  authenticate_user!
+  # before_action :authenticate_user!
   
   def new
     @post = Post.new
-    @post.photos.build
+    @post.build
   end
   
   def create
-binding.pry
     @post = current_user.posts.build(post_params)
-    if @post.photos.present?
+    if @post.present?
       @post.save
       redirect_to root_path
       flash[:notice] = "投稿が保存されました"
@@ -19,8 +18,12 @@ binding.pry
     end
   end
 
+  def index
+    # @posts = Post.all
+  end
+  
   private
     def post_params
-    params.require(:post).permit(:contain, photos_attributes: [:image])
+    params.require(:post).permit(:contain)
     end
 end
