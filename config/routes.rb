@@ -9,12 +9,12 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
   
-  root to: "pages#home"
+  root to: "posts#index"
   get '/users/:id', to: 'users#show', as: 'user'
   
   # get '/posts/new', to: 'posts#new'
   # post '/posts', to: 'posts#create'
   # post '/posts/index', to: 'posts#index'
 
-  resources :posts, only: %i(new create index) 
+  resources :posts, only: %i(new create) 
 end

@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   
   def new
     @post = Post.new
-    @post.build
   end
   
   def create
@@ -19,7 +18,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    # @posts = Post.all
+    @posts = Post.all
   end
   
   private
