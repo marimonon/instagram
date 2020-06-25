@@ -1,6 +1,19 @@
-<div id="m-modal-content">
-	<p>「閉じる」か「背景」をクリックするとモーダルウィンドウを終了します。</p>
-	<p><a id="m-modal-close" class="m-button-link">閉じる</a></p>
+<div class="row">
+  <div class="col-6">
+      <%= image_tag @post.contain.url(:gallery) %>
+      <br>
+      <%= link_to "←BACK", user_url(:id) %>
+  </div>
+  <div class="col-6">
+    <div>
+    <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
+    <strong><%= @post.user.name %></strong>
+    </div>
+    <hr>
+    <p>コメント欄</p>
+    <hr>
+    <div>
+      <%= image_tag 'fab-heart-blank.png',:height =>'30' %>
+    </div>
+  </div>
 </div>
-
-<div id="m-modal-overlay"></div>

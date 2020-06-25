@@ -1,12 +1,12 @@
-<div class="m-sample">
+<div class="m-sample" id="post-modal">
 <% @posts.each do |post| %>
   <%= image_tag post.contain.url(:gallery) %>
 	<div class="m-mask">
 		<div class="m-caption">
 		  <ul class="d-flex">
-		    <li><%= link_to image_tag("whiteheart_icon.png"), post_path(post), remote: true %></li>
+		    <li><%= link_to image_tag("whiteheart_icon.png"), post_path(post) %></li>
 		    <li><p>1,000</p></li>		    
-		    <li><%= link_to image_tag("whitecomment_icon.png"), post_path(post), remote: true %></li>
+		    <li><%= link_to image_tag("whitecomment_icon.png"), post_path(post) %></li>
 		    <li><p>100</p></li>				    
 		  </ul>
 		</div>
