@@ -1,5 +1,5 @@
-<div class="m-sample" id="post-modal">
 <% @posts.each do |post| %>
+<div class="m-sample" id="post-modal">
   <%= image_tag post.contain.url(:gallery) %>
 	<div class="m-mask">
 		<div class="m-caption">
@@ -11,5 +11,5 @@
 		  </ul>
 		</div>
 	</div>
-<% end %>
 </div>
+<% end %>

@@ -8,6 +8,9 @@
     <div>
     <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
     <strong><%= @post.user.name %></strong>
+    <% if current_user == @post.user %>
+      <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
+    <% end %>
     </div>
     <hr>
     <p>コメント欄</p>

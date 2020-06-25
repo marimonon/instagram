@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   # post '/posts', to: 'posts#create'
   # post '/posts/index', to: 'posts#index'
 
-  resources :posts, only: %i(new create show) 
+  resources :posts, only: %i(new create show destroy) 
   # get '/posts/:id', to: 'posts#show'
 end
