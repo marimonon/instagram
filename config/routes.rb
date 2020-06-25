@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   # post '/posts', to: 'posts#create'
   # post '/posts/index', to: 'posts#index'
 
-  resources :posts, only: %i(new create) 
+  resources :posts, only: %i(new create show) 
+  # get '/posts/:id', to: 'posts#show', as: 'post'
 end
