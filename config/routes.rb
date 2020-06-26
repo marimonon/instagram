@@ -11,11 +11,8 @@ Rails.application.routes.draw do
   
   root to: "posts#index"
   get '/users/:id', to: 'users#show', as: 'user'
-  
-  # get '/posts/new', to: 'posts#new'
-  # post '/posts', to: 'posts#create'
-  # post '/posts/index', to: 'posts#index'
 
-  resources :posts, only: %i(new create show destroy) 
-  # get '/posts/:id', to: 'posts#show'
+  resources :posts, only: %i(new create show destroy) do
+    resources :comments, only: %i(create destroy)
+  end
 end
