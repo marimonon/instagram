@@ -1,16 +1,19 @@
+<div class="modal-dialog" role="dialog">
+  <div class="modal-content">
     <div class="row">
       <div class="col-6">
           <%= image_tag @post.contain.url(:gallery) %>
           <br>
-          <%= link_to "←BACK", user_url(:id) %>
+          <%= link_to "←BACK", user_url(@post.id) %>
+          <br>
+          <% if current_user == @post.user %>
+            <%= link_to "投稿を削除する", post_path(@post), method: :delete, data: { confirm: "削除しますか?" } %>
+          <% end %>
       </div>
       <div class="col-6">
         <div>
         <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
         <strong><%= @post.user.name %></strong>
-        <% if current_user == @post.user %>
-          <%= link_to "削除", post_path(@post), method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
-        <% end %>
         </div>
         <hr>
         <div id="comments">
@@ -19,6 +22,7 @@
             <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'25x25' %>
             <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
             <%= c.textcomment %>
+              <%= link_to "削除", method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
             <hr>
           <% end %>
         </div>
@@ -34,3 +38,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>

@@ -20,10 +20,13 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @post = Post.new
   end
   
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new
   end
 
   def destroy
@@ -34,7 +37,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-    params.require(:post).permit(:contain)
+    params.require(:post).permit(:contain,:textcomment)
     end
 
     def correct_user
