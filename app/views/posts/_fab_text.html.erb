@@ -1,0 +1,17 @@
+<strong>
+  <% fabs.each.with_index do |fab, index| %>
+    <% if fabs.size == 1 %>
+      <%= fab.user.name %> </strong> が「いいね！」しました
+    <% elsif fab == fabs.last %>
+      </strong>and<strong>
+      <%= + fab.user.name %></strong> が「いいね！」しました
+    <% elsif index > 1 %>
+      </strong><%= "and " + (fabs.size-index).to_s + " 他 " %> が「いいね！」しました
+      <% break %>
+    <% elsif index == fabs.size-2 || index == 1 %>
+      <%= fab.user.name %>
+    <% else %>
+      <%= fab.user.name + ", " %>
+    <% end %>
+  <% end %>
+</strong>

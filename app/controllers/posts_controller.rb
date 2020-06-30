@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]  # deviseのメソッドで「ログインしていないユーザーをログイン画面に送る」メソッド
   before_action :correct_user,   only: :destroy
   
   def new
@@ -25,8 +25,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
     @comment = Comment.new
+    @comments = @post.comments
   end
 
   def destroy
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-    params.require(:post).permit(:contain,:textcomment)
+      params.require(:post).permit(:contain,:textcomment,:fab)
     end
 
     def correct_user

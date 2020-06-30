@@ -5,10 +5,11 @@ class Post < ApplicationRecord
   validates :contain, presence: true
   
   has_many :comments, dependent: :destroy
-  has_many :fab, dependent: :destroy
+  has_many :fabs, dependent: :destroy
    
-  def favorited_by?(user)
-      fabs.where(user_id: user.id).exists?
+  def fabd_by(user)
+    # user_idとpost_idが一致するfabを検索する
+    Fab.find_by(user_id: user.id, post_id: id)
   end
   
   mount_uploader :contain, ImageUploader

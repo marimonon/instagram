@@ -36,5 +36,5 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy  
-  has_many :fab, dependent: :destroy
+  has_many :fabs, dependent: :destroy
 end

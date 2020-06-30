@@ -1,0 +1,4 @@
+$('#fab-icon-post-<%= @post.id.to_s %>').
+  html('<%= link_to image_tag("whiteheart_icon.png"), post_fab_path(@post.id, @fab), method: :DELETE, remote: true, class: "loved hide-text" %>');
+$('#fab-text-post-<%= @post.id.to_s %>').
+  html('<%= j render "posts/fab_text", { fabs: @post.fabs } %>');
