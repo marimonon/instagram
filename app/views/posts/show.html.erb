@@ -27,8 +27,9 @@
           </div>
         </div>
         <div class="form-group">
-          <!--イイネ入力スペース-->
+          <!--イイネ入力-->
           <%= image_tag 'fab-heart-blank.png',:height =>'30' %>
+          
           <hr>
           <!--コメント入力-->
           <%= form_for [@post, @comment], remote: true do |f| %>

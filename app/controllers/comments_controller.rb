@@ -13,8 +13,8 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-#binding.pry
     comment=Comment.find_by(id: params[:id])
+    @post = comment.post
     comment.detroy
     flash[:success] = "投稿を削除しました"
   end
