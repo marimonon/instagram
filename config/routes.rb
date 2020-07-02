@@ -1,19 +1,24 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
   get 'fabs/create'
   get 'fabs/destroy'
   devise_for :users, 
-  controllers: { omniauth_callbacks: 'users/omniauth_callbacks', registrations: 'users/registrations' }
+  controllers: { omniauth_callbacks: 'users/omniauth_callbacks', 
+  registrations: 'users/registrations',
+  sessions: 'users/sessions'
+  }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
   devise_scope :user do
     get "signup", :to => "users/registrations#new"    
-    # get "login", :to => "users/sessions#new"
     get "logout", :to => "users/sessions#destroy"
     root :to => "users/sessions#new"  
   end
 
   # root to: "posts#index"
-
+  # get "login", :to => "users/sessions#new"
+  
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users', to: 'users#index'
   

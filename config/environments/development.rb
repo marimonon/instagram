@@ -65,13 +65,14 @@ Rails.application.configure do
   
   # mailer setting
   config.action_mailer.default_url_options = { protocol: 'https', host: 'https://e34c6b879cae4ca683e72772b76dc1e4.vfs.cloud9.us-east-2.amazonaws.com/' }
-  config.action_mailer.smtp_settings = {
-    :enable_starttls_auto => true,
-    :address => "smtp.gmail.com",
-    :port => 587,
-    :domain => 'smtp.gmail.com',
-    :user_name => "nozomi.masujima@gmail.com", #gmailアドレス
-    :password => "m0324m0324", #gmailパスワード
-    :authentication => 'login',
-  }
+  ActionMailer::Base.delivery_method = :letter_opener
+  # config.action_mailer.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address => "smtp.gmail.com",
+  #   :port => 587,
+  #   :domain => 'smtp.gmail.com',
+  #   :user_name => "nozomi.masujima@gmail.com", #gmailアドレス
+  #   :password => "m0324m0324", #gmailパスワード
+  #   :authentication => 'login',
+  # }
 end
