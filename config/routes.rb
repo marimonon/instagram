@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'relationships/create'
+  get 'relationships/destroy'
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   
   get 'fabs/create'
@@ -21,6 +23,13 @@ Rails.application.routes.draw do
   
   get '/users/:id', to: 'users#show', as: 'user'
   get '/users', to: 'users#index'
+#　↑resourcesと被らないか。
+  
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member # 追加
+    get :followers, on: :member # 追加
+  end
   
   resources :posts, only: %i(new create show destroy) do
     resources :comments, only: %i(create destroy)
