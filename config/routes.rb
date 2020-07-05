@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     get :followers, on: :member # 追加
   end
   
-  resources :posts, only: %i(new create show destroy) do
+  resources :posts, only: %i(new create show destroy index) do
     resources :comments, only: %i(create destroy)
     resources :fabs, only: %i(create destroy)
   end
