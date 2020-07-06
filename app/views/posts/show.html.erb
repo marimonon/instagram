@@ -10,8 +10,10 @@
       </div>
       <div class="col-6">
         <div>
-        <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
-        <strong><%= @post.user.name %></strong>
+          <a href="/users/<%= @post.user.id %>">
+            <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
+            <strong><%= @post.user.name %></strong>
+          </a>
         </div>
         <hr>
         <div>

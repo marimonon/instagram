@@ -21,13 +21,13 @@
         <section class="d-block">
           <%= render 'stats' %>
         </section>
+        <% if @user == current_user %>
+          <div class="text-center">
+            <%= link_to "投稿", new_post_path, class: "btn btn-outline-dark common-btn" %>
+          </div>
+        <% end %>
       </div>
       <hr>
-      <% if @user == current_user %>
-      <div class="text-center">
-      <%= link_to "投稿", new_post_path %>
-      </div>
-      <% end %>
     </div>
     <!--投稿内容-->
     <div class="row d-sm-flex justify-content-between flex-wrap">
