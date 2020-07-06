@@ -2,17 +2,25 @@
 
 <% @users.each do |user| %>
   <hr>
-  <%= image_tag avatar_url(user), class: "m-round-img", :size =>'25x25' %>
-  <h4><span>username: </span><%=link_to user.name, user_path(user.id) %></h4>
-    <!--フォロー-->
-  <% unless current_user == user %>
-    <div id="follow_form">
-    <% @user = user %>
-    <% if current_user.following?(@user) %>
-      <%= render 'unfollow' %>
-    <% else %>
-      <%= render 'follow' %>
-    <% end %>
+  <div class="row d-sm-flex justify-content-between">
+    <div class="col-sm-2">
+      <%= image_tag avatar_url(user), class: "rounded-circle", :size =>'40x40' %>
     </div>
-  <% end %>
+    <div class="col-sm-6">
+      <p><span>username: </span><%=link_to user.name, user_path(user.id) %></p>
+    </div>
+    <!--フォロー-->
+    <div class="col-sm-4">
+      <% unless current_user == user %>
+        <div id="follow_form", class="d-flex">
+        <% @user = user %>
+        <% if current_user.following?(@user) %>
+          <%= render 'unfollow' %>
+        <% else %>
+          <%= render 'follow' %>
+        <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 <% end %>
