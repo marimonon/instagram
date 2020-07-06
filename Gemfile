@@ -19,6 +19,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'mini_magick'
 gem 'rails-erd'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'

@@ -17,10 +17,18 @@
           <p>
             <%= @user.email %>
           </p>
+    <%= render 'follow' %>   
+    <%= render 'follow_form' %>
         </div>
       <% end %>
       <hr>
       <div class="text-center"><%= link_to "投稿", new_post_path %></div>
+      <% if @user.posts.any? %>
+      <p>投稿数(<%= @user.posts.count %>)</p>
+      <% end %>
+            <!--フォロー-->
+      <%= render 'stats' %>
+
     </div>
     <div>
       <!--投稿内容-->

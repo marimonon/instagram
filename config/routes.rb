@@ -25,14 +25,21 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
 #　↑resourcesと被らないか。
   
+  # resources :users do
+  #   resource :relationships, only: [:create, :destroy]
+  #   get :follows, on: :member # 追加
+  #   get :followers, on: :member # 追加
+  # end
+  
   resources :users do
-    resource :relationships, only: [:create, :destroy]
-    get :follows, on: :member # 追加
-    get :followers, on: :member # 追加
+    member do
+      get :following, :followers
+    end
   end
   
   resources :posts, only: %i(new create show destroy index) do
     resources :comments, only: %i(create destroy)
     resources :fabs, only: %i(create destroy)
   end
+  resources :relationships,only: [:create, :destroy]
 end

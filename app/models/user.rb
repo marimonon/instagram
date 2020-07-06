@@ -21,6 +21,7 @@ class User < ApplicationRecord
       )
     end
   end
+  
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
