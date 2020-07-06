@@ -183,10 +183,10 @@ input[type="submit"] {
   margin-top: 0;
   padding: 0;
   a {
-    float: left;
+    // float: left;
     padding: 0 10px;
     // border-left: 1px solid;
-    color: gray;
+    color: black;
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -196,9 +196,9 @@ input[type="submit"] {
       color: blue;
     }
   }
-  strong {
-    display: block;
-  }
+  // strong {
+  //   display: block;
+  // }
 }
 
 .user_avatars {
