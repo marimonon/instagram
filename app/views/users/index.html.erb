@@ -4,4 +4,15 @@
   <hr>
   <%= image_tag avatar_url(user), class: "m-round-img", :size =>'25x25' %>
   <h4><span>username: </span><%=link_to user.name, user_path(user.id) %></h4>
+    <!--フォロー-->
+  <% unless current_user == user %>
+    <div id="follow_form">
+    <% @user = user %>
+    <% if current_user.following?(@user) %>
+      <%= render 'unfollow' %>
+    <% else %>
+      <%= render 'follow' %>
+    <% end %>
+    </div>
+  <% end %>
 <% end %>
