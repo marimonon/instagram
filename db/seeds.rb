@@ -5,18 +5,17 @@ User.create!(email: "example@example.com",
 
 
 User.all.each do |user|
-# 2.upto(5) do |n|
+  1.upto(5) do |n|
 # user.create!(email: "example#{n}@example.com",
 #             name:  "Example#{n} user",
 #             password:              "hogehoge",
 #             password_confirmation: "hogehoge")
 
-@post=user.posts.build(
-               contain: open("#{Rails.root}/db/fixtures/1.jpg")
-              )
-@post.save
-
-  # end
+  @post=user.posts.build(
+                 contain: open("#{Rails.root}/db/fixtures/#{n}.jpg")
+                )
+  @post.save
+  end
 end
 
 # User.create!(
