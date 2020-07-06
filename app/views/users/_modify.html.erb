@@ -1,0 +1,20 @@
+<!--入力他、あとで削除する？-->
+<% if @user == current_user %>
+  <div class="row">
+    <div class="col-md-4"><%= image_tag "facebook_icon.png", :size =>'50x50' %>
+      <h4>facebookの友達を検索</h4>
+      <p>フォローする人は自分で選択できます。また、アカウントをリンクしても、あなたの許可なくFacebookに投稿されることはありません。</p>
+      <%= link_to "facebookアカウントにリンク", "#", class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-4"><%= image_tag "tel_icon.png", :size =>'50x50' %>
+      <h4>電話番号を追加</h4>
+      <p>電話番号を追加すると、パスワードのリセットや友達の検索などに使用することができます。</p>
+      <%= link_to "電話番号を追加", "#", class: "btn btn-primary" %>
+    </div>
+    <div class="col-md-4"><%= image_tag "camera_icon.png", :size =>'50x50' %>
+      <h4>プロフィール写真を追加</h4>
+      <p>友達に簡単に見つけてもらえるよう、プロフィール写真を追加してください。</p>
+      <%= link_to "プロフィール写真を追加", "#", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

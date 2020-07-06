@@ -1,21 +1,26 @@
-<% @posts.each do |post| %>
-<div class="m-sample">
-  <%= image_tag post.contain.url(:gallery) %>
-	<div class="m-mask">
-		<div class="m-caption">
-		  <ul class="d-flex">
-		    <li><% if post.fabd_by(current_user).present? %>
-					    <%= link_to image_tag("whiteheart_icon.png"), post_fab_path(post.id, post.fabd_by(current_user)), method: :DELETE, remote: true %>
-					  <% else %>
-					    <%= link_to image_tag("redheart_icon.png"), post_fabs_path(post), method: :POST, remote: true %>
-					  <% end %>
-		    </li>
-		    <li><p>1,000</p></li>		    
-		    <li><%= link_to image_tag("whitecomment_icon.png"), post_path(post) %></li>
-		    <li><p>100</p></li>				    
-		  </ul>	    
-	  </div>
-	</div>
+<div class="row d-sm-flex justify-content-between flex-wrap">
+	<% @posts.each do |post| %>
+	<div class="col-sm-4">　
+		<div class="m-sample">
+		  <%= image_tag post.contain.url(:gallery) %>
+		  <!--マスク-->
+			<div class="m-mask">
+				<div class="m-caption">
+				  <ul class="d-flex">
+				    <li><% if post.fabd_by(current_user).present? %>
+							    <%= link_to image_tag("whiteheart_icon.png"), post_fab_path(post.id, post.fabd_by(current_user)), method: :DELETE, remote: true %>
+							  <% else %>
+							    <%= link_to image_tag("redheart_icon.png"), post_fabs_path(post), method: :POST, remote: true %>
+							  <% end %>
+				    </li>
+				    <li><p>1,000</p></li>		    
+				    <li><%= link_to image_tag("whitecomment_icon.png"), post_path(post) %></li>
+				    <li><p>100</p></li>				    
+				  </ul>	    
+			  </div>
+			</div>　<!--ここまでマスク-->
+		</div>
+	</div> 
+	<div id="post-modal"></div>
+	<% end %>
 </div>
-<div id="post-modal"></div>
-<% end %>
