@@ -17,8 +17,8 @@
           <p>
             <%= @user.email %>
           </p>
-    <%= render 'follow' %>   
-    <%= render 'follow_form' %>
+
+      <%= render 'follow_form' if user_signed_in? %>
         </div>
       <% end %>
       <hr>
