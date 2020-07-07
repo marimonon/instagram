@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     @comment=Comment.find_by(id: params[:id])
     @post = @comment.post
     @comment.destroy!
+    redirect_to post_path(@post)
     flash[:success] = "投稿を削除しました"
   end
 
