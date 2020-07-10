@@ -18,7 +18,7 @@ class RelationshipsController < ApplicationController
       format.js
     end
   end
-  
+
 private
     def logged_in_user
           unless logged_in?

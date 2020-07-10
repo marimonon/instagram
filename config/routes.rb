@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   # root to: "posts#index"
   # get "login", :to => "users/sessions#new"
   
-  get '/users/:id', to: 'users#show', as: 'user'
-  get '/users', to: 'users#index'
+  # get '/users/:id', to: 'users#show', as: 'user'
+  # get '/users', to: 'users#index'
 #　↑resourcesと被らないか。
   
   # resources :users do
