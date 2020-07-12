@@ -13,12 +13,12 @@
     <% if @users.any? %>
       <ul class="users follow">
         <% @users.each do |user| %> 
-        <hr>
-        <div class="d-flex">
-        <%= image_tag avatar_url(user), class: "rounded-circle", :size =>'40x40' %>
-        <h4><%= link_to user.name, user_path(user) %></h4>
+          <hr>
+          <div class="d-flex">
+            <%= image_tag avatar_url(user), class: "rounded-circle", :size =>'40x40' %>
+            <h4><%= link_to user.name, user_path(user) %></h4>
+          <div>
         <% end %>
-        <div>
       </ul>
       <%= will_paginate %>
     <% end %>

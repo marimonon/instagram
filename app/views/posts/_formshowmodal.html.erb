@@ -2,18 +2,16 @@
   <div class="modal-content">
     <div class="row">
       <div class="col-6">
-          <%= image_tag @post.contain.url(:gallery) %>
-          <br>
-          <%= link_to "←BACK", user_url(@post.id) %>
-          <br>
-          <% if current_user == @post.user %>
-            <%= link_to "投稿を削除する", post_path(@post), method: :delete, data: { confirm: "削除しますか?" } %>
-          <% end %>
+        <%= image_tag @post.contain.url(:gallery) %><br>
+        <%= link_to "←BACK", user_url(@post.id) %><br>
+        <% if current_user == @post.user %>
+          <%= link_to "投稿を削除する", post_path(@post), method: :delete, data: { confirm: "削除しますか?" } %>
+        <% end %>
       </div>
       <div class="col-6">
         <div>
-        <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
-        <strong><%= @post.user.name %></strong>
+          <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
+          <strong><%= @post.user.name %></strong>
         </div>
         <hr>
         <div>
