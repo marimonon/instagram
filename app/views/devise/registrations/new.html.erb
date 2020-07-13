@@ -1,0 +1,43 @@
+<body class="container m-signup-new-container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-sm-10 col-12 m-signup-width">
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <%= link_to "Facebookでログインする",  omniauth_authorize_path(resource_name, provider), class:"btn btn-primary text-center" %><br />
+      <% end %><br />
+    
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+        <div class="field form-group">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+        </div>
+
+        <div class="field form-group">
+          <%= f.label :name, "ユーザーネーム" %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control" %>
+        </div>
+        
+        <div class="field form-group">
+          <%= f.label :password, "パスワード" %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %>文字以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      
+        <div class="field form-group">
+          <%= f.label :password_confirmation, "パスワード（確認用）" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %>
+        </div>
+      
+        <div class="actions form-group">
+          <%= f.submit "登録する", class:"form-control" %>
+        </div>
+      <% end %>
+      <p class="devise-link">アカウントをお持ちですか？　
+        <%= link_to "ログインする", new_session_path(resource_name) %><br />
+      </p>
+    </div>
+  </div>
+</body>

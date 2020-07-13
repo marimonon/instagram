@@ -1,0 +1,27 @@
+<body　class="m-passwordnew-body">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-sm-10 col-12 m-signup-width">
+        <div class="text-center mb-3">
+          <%= image_tag "reset_login.png" %>
+        </div>
+        <h3>ログインできない場合</h3>
+        <p>アカウントにアクセスするためのログインリンクを送信するため、ユーザーネームまたはメールアドレスを入力してください。</p>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+      
+        <div class="field form-group">
+          <%= f.email_field :email, placeholder:"メールアドレス", autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+      
+        <div class="actions">
+          <%= f.submit "ログインリンクを送信" %>
+        </div>
+        <% end %>
+        <p>または</p>
+        <%= link_to "新しいアカウントを作成", new_registration_path(resource_name) %><br />
+        <%= link_to "ログインに戻る", new_session_path(resource_name), class:"card-footer" %><br />
+      </div>
+    </div>
+  </div>
+</body>

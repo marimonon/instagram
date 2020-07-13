@@ -1,0 +1,234 @@
+@import "bootstrap";
+
+* {
+  list-style: none;
+}
+
+body {
+  background-color: #fafafa;
+  font-size: 14px;
+  color: #262626;
+}
+
+.m-footer {
+  display: flex;
+  justify-content: space-between;
+
+  nav {
+    width: 1500px;
+  }
+
+  ul {
+    display: flex;
+    justify-content: space-berween;
+
+    li {
+      display: block;
+      text-align: center;
+      list-style: none;
+    }
+  }
+}
+
+/* form */
+input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+  width: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+// toppage
+.m-container {
+  margin: 100px;
+}
+
+.m-bg-image-phone {
+  height: 500px;
+  padding-top: 78px;
+  padding-left: 30px;
+  background-image: image-url("image_phone.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.m-topppage-tag {
+  display: flex;
+  justify-content: center;
+
+  li {
+    display: block;
+    margin: 3px;
+  }
+}
+
+.m-toppage-right {
+  max-width: 600px;
+}
+
+
+// signup
+.m-signup-new-container {
+  width: 1000px;
+}
+
+.m-signup-width {
+  padding-top: 100px;
+}
+
+// password new
+.m-passwordnew-body {
+  text-align: center;
+}
+
+//header
+
+.m-ul-flex {
+  display: flex;
+  list-style: none;
+}
+
+//profilepage
+.m-round-img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+}
+
+.m-edit-profile-btn {
+  margin: 15px 0 0 15px;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.m-setting {
+  background-image: image-url("parts4.png");
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  margin: 18px 0 0 10px;
+  background-size: 22px !important;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+//edit password
+.m-profile-form-wrap {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+}
+
+.m-profile-form-wrap label {
+  font-weight: bold;
+}
+
+.m-edit-profile-wrapper {
+  margin-top: 60px;
+}
+
+//photo hover
+.m-sample {
+  width: 260px;
+  height: 200px;
+  overflow: hidden;
+  margin: 10px 8px 10px 16px;
+  position: relative;
+
+  /* 相対位置指定 */
+  .m-caption {
+    font-size: 130%;
+    text-align: center;
+    padding-top: 80px;
+    color: #fff;
+  }
+
+  .m-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* 絶対位置指定 */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    /* マスクを表示しない */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* マスクは半透明 */
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+}
+
+.m-sample:hover .m-mask {
+  opacity: 1;
+  /* マスクを表示する */
+}
+
+// fabs
+.loved {
+  background-image: image-url("fab-heart.png");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  // background-size: 36px !important;
+}
+
+.hide-text {
+  display: block;
+  overflow: hidden;
+  text-indent: 110%;
+  white-space: nowrap;
+}
+
+// follow
+.stats {
+  overflow: auto;
+  margin-top: 0;
+  padding: 0;
+
+  a {
+    // float: left;
+    padding: 0 10px;
+    // border-left: 1px solid;
+    color: black;
+
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: blue;
+    }
+  }
+
+  // strong {
+  //   display: block;
+  // }
+}
+
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+
+  .gravatar {
+    margin: 1px 1px;
+  }
+
+  a {
+    padding: 0;
+  }
+}
+
+.users.follow {
+  padding: 0;
+}

@@ -1,0 +1,42 @@
+<div class="profile-wrap">
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <%= image_tag avatar_url(@user), class: "m-round-img" %>
+      <!--フォロー-->
+      <%= render 'follow_form' if user_signed_in? %>
+    </div>
+    <div class="col-md-8">
+      <!--プロフィール画面-->
+      <div class="row">
+        <h1><%= @user.name %></h1>
+        <% if @user == current_user %>
+          <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark common-btn m-edit-profile-btn" %>
+          <button type="button" class="m-setting" data-toggle="modal" data-target="#exampleModal"></button>
+        <% end %>
+      </div>
+      <div class="row">
+        <% if @user.posts.any? %>
+          <p>投稿数　<%= @user.posts.count %>　　</p>
+        <% end %>
+        <section class="d-block">
+          <%= render 'stats' %>
+        </section>
+        <% if @user == current_user %>
+          <div class="text-center">
+            <%= link_to "投稿", new_post_path, class: "btn btn-outline-dark common-btn" %>
+          </div>
+        <% end %>
+      </div>
+      <hr>
+    </div>
+    <!--投稿内容-->
+    <div class="row d-sm-flex justify-content-between flex-wrap">
+      <% @posts.each do |post| %>
+        <div class="col-sm-4">
+          <p><%= link_to image_tag(post.contain.url(:gallery)), post_path(post) %></p>
+        </div>
+      <% end %>
+    </div>
+    <hr>
+  </div>
+</div>

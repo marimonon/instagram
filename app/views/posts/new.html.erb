@@ -1,0 +1,4 @@
+<%= form_with model: @post do |f| %>
+  <%= f.file_field :contain %>
+  <%= f.submit "投稿", class: "btn btn-primary" %>
+<% end %>

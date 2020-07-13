@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light">
+  <%= link_to image_tag("header_logo.png", :width => '150'), "/" %>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="検索する" aria-label="Search">
+  </form>
+  <div>
+    <ul class="mr-auto m-ul-flex">
+      <li><%= link_to image_tag("home_icon.png", :width => '30'), "/" %></li>
+      <li><%= link_to image_tag("send_icon.png", :width => '30'), "/" %></li>
+      <li><%= link_to image_tag("heart_icon.png", :width => '30'), "/" %></li>
+      <li><%= link_to image_tag(avatar_url(current_user), class: "rounded-circle", :size =>'30x30'), user_path(current_user) %></li>
+    </ul>  
+  </div>
+</nav>

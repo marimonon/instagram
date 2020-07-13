@@ -35,7 +35,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
 
   config.action_mailer.perform_caching = false
-
+  
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -59,4 +59,20 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+  
+  # Cloud9 への接続を許可する
+  config.hosts.clear
+  
+  # mailer setting
+  config.action_mailer.default_url_options = { protocol: 'https', host: 'https://e34c6b879cae4ca683e72772b76dc1e4.vfs.cloud9.us-east-2.amazonaws.com/' }
+  ActionMailer::Base.delivery_method = :letter_opener
+  # config.action_mailer.smtp_settings = {
+  #   :enable_starttls_auto => true,
+  #   :address => "smtp.gmail.com",
+  #   :port => 587,
+  #   :domain => 'smtp.gmail.com',
+  #   :user_name => "nozomi.masujima@gmail.com", #gmailアドレス
+  #   :password => "m0324m0324", #gmailパスワード
+  #   :authentication => 'login',
+  # }
 end
