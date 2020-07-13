@@ -1,46 +1,44 @@
-    <div class="row">
-      <div class="col-6">
-          <%= image_tag @post.contain.url(:gallery) %>
-          <br>
-          <%= link_to "←BACK", user_url(@post.id) %>
-          <br>
-          <% if current_user == @post.user %>
-            <%= link_to "投稿を削除する", post_path(@post), method: :delete, data: { confirm: "削除しますか?" } %>
-          <% end %>
-      </div>
-      <div class="col-6">
-        <div>
-          <a href="/users/<%= @post.user.id %>">
-            <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
-            <strong><%= @post.user.name %></strong>
-          </a>
-        </div>
-        <hr>
-        <div>
-          <div id="comments">
-            <!--コメント出力-->
-            <% @comments.each do |c| %>
-              <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'25x25' %>
-              <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
-              <div>
-                <%= c.textcomment %>
-              </div>
-                <%= link_to "削除", post_comment_path(c), method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
-              <hr>
-            <% end %>
+<div class="row">
+  <div class="col-6">
+      <%= image_tag @post.contain.url(:gallery) %>
+      <br>
+      <%= link_to "←BACK", user_url(@post.id) %>
+      <br>
+      <%= render 'postdelete' %>
+  </div>
+  <div class="col-6">
+    <div>
+      <a href="/users/<%= @post.user.id %>">
+        <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'50x50' %>
+        <strong><%= @post.user.name %></strong>
+      </a>
+    </div>
+    <hr>
+    <div>
+      <div id="comments">
+        <!--コメント出力-->
+        <% @comments.each do |c| %>
+          <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'25x25' %>
+          <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
+          <div>
+            <%= c.textcomment %>
           </div>
-        </div>
-        <div class="form-group">
-          <!--イイネ入力-->
-          <%= image_tag 'fab-heart-blank.png',:height =>'30' %>
-          
+            <%= link_to "削除", post_comment_path(c), method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
           <hr>
-          <!--コメント入力-->
-          <%= form_for [@post, @comment], remote: true do |f| %>
-            <%= f.hidden_field :post_id, value: @post.id %>
-            <%= f.text_field :textcomment, class: "form-control" %>
-            <%= f.submit '投稿' %>
-          <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
+    <div class="form-group">
+      <!--イイネ入力-->
+      <%= image_tag 'fab-heart-blank.png',:height =>'30' %>
+      
+      <hr>
+      <!--コメント入力-->
+      <%= form_for [@post, @comment], remote: true do |f| %>
+        <%= f.hidden_field :post_id, value: @post.id %>
+        <%= f.text_field :textcomment, class: "form-control" %>
+        <%= f.submit '投稿' %>
+      <% end %>
+    </div>
+  </div>
+</div>

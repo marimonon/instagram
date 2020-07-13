@@ -20,8 +20,10 @@
             <% @comments.each do |c| %>
               <%= image_tag avatar_url(@post.user), class: "rounded-circle", :size =>'25x25' %>
               <a href="/users/<%= @post.user.id %>"><%= c.user.name %></a>
-              <div><%= c.textcomment %></div>
-                <%= link_to "削除", method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
+              <div>
+                <%= c.textcomment %>
+              </div>
+              <%= link_to "削除", method: :delete, data: { confirm: "削除しますか?" }, class: "float-right" %>
               <hr>
             <% end %>
           </div>

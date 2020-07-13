@@ -28,17 +28,17 @@ class UsersController < ApplicationController
   
   private
     def user_params
-       params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password)
     end
     
     def logged_in_user
-          unless logged_in?
-            flash[:danger] = "Please log in."
-            redirect_to login_url
-          end
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
     
     def logged_in?
-        !current_user.nil?
+      !current_user.nil?
     end
 end
